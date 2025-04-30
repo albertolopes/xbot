@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xbot
+  namespace: default
+  labels:
+    app: xbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xbot
+  template:
+    metadata:
+      labels:
+        app: xbot
+    spec:
+      containers:
+        - name: xbot
+          image: xbot:latest
+          ports:
+            - containerPort: 8080
